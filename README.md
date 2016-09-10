@@ -10,6 +10,6 @@ Find places to go based on:
 
 Integrate with:
 
-[ ] Yelp
-[ ] Lyft
-[ ] TripAdvisor
+- [ ] Yelp
+- [ ] Lyft
+- [ ] TripAdvisor
