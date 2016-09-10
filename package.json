@@ -11,7 +11,8 @@
     "express": "^4.14.0",
     "lyft-api": "mnemonicflow/lyft-js",
     "twilio": "^2.10.0",
-    "yelp": "^1.0.1"
+    "yelp": "^1.0.1",
+    "google-places":"*"
   },
   "devDependencies": {
     "eslint": "^3.5.0",
