@@ -43,7 +43,8 @@ app.get('/api/random', [places, lyft, twilio], function(req, res) {
     }
     res.status(200).send({
       'theplace': req.theplace,
-      'lyft': req.lyft
+      'lyft': req.lyft,
+      'place': req.place
     });
   }
 });

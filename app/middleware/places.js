@@ -25,6 +25,10 @@ module.exports = function(req, res, next) {
             req.err = 500;
             next();
           } else {
+            req.place = {
+              name: response.result.name,
+              map: response.result.url
+            };
             req.theplace = _.pluck(response.result.address_components, 'long_name').join(", ");
             next();
           }
