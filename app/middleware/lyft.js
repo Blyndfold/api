@@ -1,16 +1,16 @@
-var lyftClientToken = "gAAAAABX0-WP_HMg-sBoHMrsZ9qq09VmrMHAdJswfA7OA5aa459GTmom3GgRhwCCSmL5w09PX2l7QuJBRlIWlWrQCwqPIXpKxYf2yEjH5TIy_gljGsgJ3dMizI0QWUaxEiMrNVwOvGZlV3o2gYTY0McrW5h3ksUQMuEf7rLnNIO5CEgnib8J7W0=";
-var lyftClientSecret = "YwRXkJUN_CPsbjrYv_i8tvOqyDS1XzkV";
-
-var Lyft = require('lyft-api');
-var lyft = LyftApi.ApiClient.default;
-
-// Lyft OAuth2
-var LyftClientAuth = defaultClient.authentications['Client Authentication'];
-LyftClientAuth.accessToken = lyftClientToken;
-var LyftPublicAuth = defaultClient.authentications['User Authentication'];
-LyftPublicAuth = lyftClientToken;
-
-var lyftapi = new LyftApi.PublicApi();
+//var lyftClientToken = "gAAAAABX0-WP_HMg-sBoHMrsZ9qq09VmrMHAdJswfA7OA5aa459GTmom3GgRhwCCSmL5w09PX2l7QuJBRlIWlWrQCwqPIXpKxYf2yEjH5TIy_gljGsgJ3dMizI0QWUaxEiMrNVwOvGZlV3o2gYTY0McrW5h3ksUQMuEf7rLnNIO5CEgnib8J7W0=";
+//var lyftClientSecret = "YwRXkJUN_CPsbjrYv_i8tvOqyDS1XzkV";
+//
+//var Lyft = require('lyft-api');
+//var lyft = LyftApi.ApiClient.default;
+//
+//// Lyft OAuth2
+//var LyftClientAuth = defaultClient.authentications['Client Authentication'];
+//LyftClientAuth.accessToken = lyftClientToken;
+//var LyftPublicAuth = defaultClient.authentications['User Authentication'];
+//LyftPublicAuth = lyftClientToken;
+//
+//var lyftapi = new LyftApi.PublicApi();
 
 module.exports = function(req, res, next) {
 
@@ -37,7 +37,7 @@ module.exports = function(req, res, next) {
         "img": "https://heavyeditorial.files.wordpress.com/2016/05/harambe-22.jpg?quality=65&strip=all&strip=all",
         "name": "Harambe",
         "car": "Orange Ferrari",
-        "plate": "RAM2BAE",
+        "plate": "RAMBABE",
       },
       {
         "img": "http://www.thewrap.com/wp-content/uploads/2015/10/docbrown.jpg",
@@ -61,7 +61,7 @@ module.exports = function(req, res, next) {
         "img": "http://worldversus.com/img/terminator.jpg",
         "name": "Arnold",
         "car": "1990 Harley Davidson",
-        "plate": "VSTABBY",
+        "plate": "LAVISTA",
       },
       {
         "img": "http://img.wennermedia.com/620-width/tom-from-myspace-lg.jpg",
@@ -79,5 +79,4 @@ module.exports = function(req, res, next) {
     req.lyft = drivers[Math.floor(Math.random() * (drivers.length))];
     req.lyft.eta = Math.floor(Math.random() * 4 + 3)
     next();
-
 };
