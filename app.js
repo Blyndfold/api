@@ -41,8 +41,7 @@ app.get('/api/random', [places, lyft, twilio], function(req, res) {
         setTimeout(function() {text(myObj.eta, req.lyft, req.query.phone);}, 60000 * myObj.count);
       })
     }
-    res.status(200);
-    res.send({
+    res.status(200).send({
       'theplace': req.theplace,
       'lyft': req.lyft
     });

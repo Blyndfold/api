@@ -75,6 +75,12 @@ module.exports = function(req, res, next) {
         "car": "2004 Red Porsche",
         "plate": "MYSPACE",
       },
+      {
+        "img": "https://camo.githubusercontent.com/6646ceeed0be1dbc786d79bfb9dfd3d264641490/687474703a2f2f66696e6469636f6e732e636f6d2f66696c65732f69636f6e732f313331362f6675747572616d615f766f6c5f312f3235362f6c65656c612e706e67",
+        "name": "Turanga Leela",
+        "car": "Planet Express Ship",
+        "plate": "FUTURAM",
+      },
     ];
     req.lyft = drivers[Math.floor(Math.random() * (drivers.length))];
     req.lyft.eta = Math.floor(Math.random() * 4 + 3)
