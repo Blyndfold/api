@@ -1,6 +1,7 @@
 var express = require('express');
 var app = new express()
 var Yelp = require('yelp');
+var request = require('request');
 
 var yelp = new Yelp({
   consumer_key: 'YuTliW6vAEGHcFO06vJrrw',
