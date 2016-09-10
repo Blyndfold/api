@@ -11,13 +11,14 @@ module.exports = function(req, res, next){
    * -next();
    */
   if (req.err) next();
+  else if (!req.query.phone) next();
   else {
     var message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minutes.'
     if (req.lyft.eta == 1) message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minute. Please be ready for your Blyndfold.'
     else if (req.lyft.eta == 0) message = 'Your lyft is arriving now. Enjoy your Blyndfold!'
     message += ' Your driver, ' + req.lyft.name +', is driving a ' + req.lyft.car + ' with license plate ' + req.lyft.plate + '.'
     twilio.sendMessage({
-      to: req.query.phone || "+16507993840",
+      to: req.query.phone,
       from: '+16503004250',
       body: message,
       }, function(err, responseData) { //this function is executed when a response is received from Twilio

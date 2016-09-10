@@ -28,17 +28,19 @@ function text(eta, lyft, phone) {
 app.get('/api/random', [places, lyft, twilio], function(req, res) {
   if (req.err) res.status(req.err)
   else {
-    var myArr = []
-    var count = 1;
-    while (req.lyft.eta != 0) {
-      req.lyft.eta -= 1;
-      var eta = req.lyft.eta
-      myArr.push({eta: eta, count: count})
-      count++;
+    if (req.query.phone) {
+      var myArr = []
+      var count = 1;
+      while (req.lyft.eta != 0) {
+        req.lyft.eta -= 1;
+        var eta = req.lyft.eta
+        myArr.push({eta: eta, count: count})
+        count++;
+      }
+      myArr.forEach(function(myObj) {
+        setTimeout(function() {text(myObj.eta, req.lyft, req.query.phone);}, 60000 * myObj.count);
+      })
     }
-    myArr.forEach(function(myObj) {
-      setTimeout(function() {text(myObj.eta, req.lyft, req.query.phone);}, 60000 * myObj.count);
-    })
     res.status(200);
     res.send({
       'theplace': req.theplace,
