@@ -11,19 +11,21 @@ module.exports = function(req, res, next){
    * -next();
    */
   if (req.err) next();
-  var message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minutes.'
-  if (req.lyft.eta == 1) message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minute. Please be ready for your Blyndfold.'
-  else if (req.lyft.eta == 0) message = 'Your lyft is arriving now. Enjoy your Blyndfold!'
-  message += ' Your driver, ' + req.lyft.name +', is driving a ' + req.lyft.car + ' with license plate ' + req.lyft.plate + '.'
-  twilio.sendMessage({
-    to: req.query.phone || "+16507993840",
-    from: '+16503004250',
-    body: message,
-    }, function(err, responseData) { //this function is executed when a response is received from Twilio
-        if (!err) { // "err" is an error received during the request, if any
-            console.log(responseData.from); // outputs "+14506667788"
-            console.log(responseData.body); // outputs "word to your mother."
-        }
-    });
-  next();
+  else {
+    var message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minutes.'
+    if (req.lyft.eta == 1) message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minute. Please be ready for your Blyndfold.'
+    else if (req.lyft.eta == 0) message = 'Your lyft is arriving now. Enjoy your Blyndfold!'
+    message += ' Your driver, ' + req.lyft.name +', is driving a ' + req.lyft.car + ' with license plate ' + req.lyft.plate + '.'
+    twilio.sendMessage({
+      to: req.query.phone || "+16507993840",
+      from: '+16503004250',
+      body: message,
+      }, function(err, responseData) { //this function is executed when a response is received from Twilio
+          if (!err) { // "err" is an error received during the request, if any
+              console.log(responseData.from); // outputs "+14506667788"
+              console.log(responseData.body); // outputs "word to your mother."
+          }
+      });
+    next();
+  }
 };

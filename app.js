@@ -1,6 +1,7 @@
 var express = require('express');
 var app = new express();
 var yelp = require('./app/middleware/yelp');
+var places = require('./app/middleware/places');
 var lyft = require('./app/middleware/lyft');
 var twilio = require('./app/middleware/twilio');
 var twilioAPI = require('twilio')('AC22b9e3d62610aaef92c4bdab5c7b811a', '251943b2b70688e5d59e8509f7427d78');
@@ -24,7 +25,7 @@ function text(eta, lyft, phone) {
 }
 
 
-app.get('/api/random', [yelp, lyft, twilio], function(req, res) {
+app.get('/api/random', [places, lyft, twilio], function(req, res) {
   if (req.err) res.status(req.err)
   else {
     var myArr = []
@@ -40,7 +41,7 @@ app.get('/api/random', [yelp, lyft, twilio], function(req, res) {
     })
     res.status(200);
     res.send({
-      'yelp': req.yelp,
+      'theplace': req.theplace,
       'lyft': req.lyft
     });
   }
