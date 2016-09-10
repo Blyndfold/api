@@ -2,8 +2,9 @@ var express = require('express');
 var app = new express();
 var yelp = require('./app/middleware/yelp');
 var lyft = require('./app/middleware/lyft');
+var twilio = require('./app/middleware/twilio');
 
-app.get('/api/random', [yelp, lyft], function(req, res) {
+app.get('/api/random', [yelp, lyft, twilio], function(req, res) {
   if (req.err) res.status(req.err)
   else {
     res.status(200);

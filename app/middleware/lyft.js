@@ -1,16 +1,16 @@
-var lyftClientToken = "gAAAAABX0-WP_HMg-sBoHMrsZ9qq09VmrMHAdJswfA7OA5aa459GTmom3GgRhwCCSmL5w09PX2l7QuJBRlIWlWrQCwqPIXpKxYf2yEjH5TIy_gljGsgJ3dMizI0QWUaxEiMrNVwOvGZlV3o2gYTY0McrW5h3ksUQMuEf7rLnNIO5CEgnib8J7W0=";
-var lyftClientSecret = "YwRXkJUN_CPsbjrYv_i8tvOqyDS1XzkV";
-
-var Lyft = require('lyft-api');
-var lyft = LyftApi.ApiClient.default;
-
-// Lyft OAuth2
-var LyftClientAuth = defaultClient.authentications['Client Authentication'];
-LyftClientAuth.accessToken = lyftClientToken;
-var LyftPublicAuth = defaultClient.authentications['User Authentication'];
-LyftPublicAuth = lyftClientToken;
-
-var lyftapi = new LyftApi.PublicApi();
+//var lyftClientToken = "gAAAAABX0-WP_HMg-sBoHMrsZ9qq09VmrMHAdJswfA7OA5aa459GTmom3GgRhwCCSmL5w09PX2l7QuJBRlIWlWrQCwqPIXpKxYf2yEjH5TIy_gljGsgJ3dMizI0QWUaxEiMrNVwOvGZlV3o2gYTY0McrW5h3ksUQMuEf7rLnNIO5CEgnib8J7W0=";
+//var lyftClientSecret = "YwRXkJUN_CPsbjrYv_i8tvOqyDS1XzkV";
+//
+//var Lyft = require('lyft-api');
+//var lyft = LyftApi.ApiClient.default;
+//
+//// Lyft OAuth2
+//var LyftClientAuth = defaultClient.authentications['Client Authentication'];
+//LyftClientAuth.accessToken = lyftClientToken;
+//var LyftPublicAuth = defaultClient.authentications['User Authentication'];
+//LyftPublicAuth = lyftClientToken;
+//
+//var lyftapi = new LyftApi.PublicApi();
 
 module.exports = function(req, res, next) {
 
