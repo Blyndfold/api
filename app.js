@@ -12,13 +12,17 @@ var yelp = new Yelp({
 app.get('/api/random', function(req, res) {
   var myLoc = req.query.location
   var myType = req.query.type
+  var myRadius = req.query.radius
   if (!myLoc) {
-    myLoc = "University of Pennsylvania, Philadelphia"
+    myLoc = "3300 Walnut St, Philadelphia"
   }
   if (!myType) {
     myType = "Mexican"
   }
-  yelp.search({ term: myType, location: myLoc })
+  if (!myRadius) {
+    myRadius = 5000
+  }
+  yelp.search({ term: myType, location: myLoc, radius_filter: Number.parseInt(myRadius) })
   .then(function (data) {
     if (data.businesses.length > 0) {
       var randInt = Math.floor(Math.random() * (data.businesses.length - 0));
