@@ -46,6 +46,6 @@ app.get('/api/random', [yelp, lyft, twilio], function(req, res) {
   }
 });
 
-app.listen(3000, function() {
-  console.log("Listening on 3000")
+app.listen(8080, function() {
+  console.log("Listening on 8080")
 });
