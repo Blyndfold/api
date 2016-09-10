@@ -10,7 +10,7 @@ module.exports = function(req, res, next){
    *  the contents of the Lyft response object
    * -next();
    */
-
+  if (req.err) next();
   var message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minutes.'
   if (req.lyft.eta == 1) message = 'Your lyft will be arriving in ' + req.lyft.eta + ' minute. Please be ready for your Blyndfold.'
   else if (req.lyft.eta == 0) message = 'Your lyft is arriving now. Enjoy your Blyndfold!'
